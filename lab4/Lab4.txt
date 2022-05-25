@@ -1,0 +1,56 @@
+Exercise 1
+
+1. IP address of gaia.cs.umass.edu: 128.119.245.12. It using port 80
+   IP address of host: 192.168.1.102. It is using port 1161
+   
+2. Sequence number of segment with POST command: 232129013
+
+3. First 6 segments: 
+    seq. no.    time        ack received    sampleRTT   estRTT
+    232129013   0.026477    0.053937        0.02746     0.02746
+    232129578   0.041737    0.077294        0.035557    0.028472125
+    232131038   0.054026    0.124085        0.070059    0.03367048437
+    232132498   0.054690    0.169118        0.114428    0.04376517382
+    232133958   0.077405    0.217299        0.139894    0.05578127709
+    232135418   0.078157    0.267802        0.189645    0.07251424245
+    
+    est RTT formula: (1-0.125) * estRTT + 0.125 * sampleRTT
+    
+4.  619 bytes
+    1514 bytes
+    1514 bytes
+    1514 bytes
+    1514 bytes
+    1514 bytes
+    
+5. 5840 bytes (in frame 2 in the SYN ACK). No the receiver buffer size does not throttle the sender as the sender does not send up to the buffer size amount and the buffer size increases as the transmission goes on
+
+6. No. Check for duplicate sequence numbers of packets being sent (or duplicate ack numbers from the server) which there are none of
+
+7. An ack normally acknowledges 1514 bytes of data. Yes, the ack for segment 66 is acking both segment 65 and 66 (since the ack before that is ack 64)
+
+8. Bytes transferred through transmission: 232293103 - 232129012 = 164091
+   Using last ack number from server (in frame 206) as last and first seq number (in frame 1) as first
+   Time = 7.595557 seconds
+   
+   Throughput = 164091 / 7.595557 = 21603.550602 bytes/second
+   
+
+Exercise 2
+
+1. client seq no: 2818463618
+
+2. seq no: 1247095790
+   ack: 2818463919
+   The server determines the ack value by taking the seq number from the client and adding 1
+   
+3. Seq no in response to SYN ACK: 2818463919
+   ack: 1247095791
+   No there is no data - the ack is incremented because the client is acknowledging the SYN
+   
+4. The server and client both close at the same time. This is shown by the client and server send FIN at the same time and then both ack eachothers fin later on - it is simultaneous close. 
+
+5. Client: This is the final ack from server - ISN from client - 2: for SYN and FIN bytes
+2818463653 - 2818463618 - 2 = 33 bytes of data transferred by client
+   Server: This is the final ack from client - ISN from server - 2: for SYN and FIN bytes
+1247095832 - 1247095790 - 2 = 40 bytes transferred by server

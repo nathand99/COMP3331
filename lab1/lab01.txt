@@ -1,0 +1,41 @@
+Exercise 1:
+    1. IP addresses of www.koala.com.au:
+           104.18.60.21
+           104.18.61.21
+       There are multiple IP addresses so that the load on the website is spread across multiple IP addresses
+    2. IP address 127.0.0.1 is called localhost. This IP address is special because it is always the localhost
+    
+Exercise 2:
+    Hosts not reachable by ping:
+    www.hola.hp - unknown host - website doesn't exist
+    http://www.kremlin.ru/ unknown host - kremlin.ru does not allow people to ping their server for security reasons
+
+Exercise 3:
+    1. There are 23 routers between our machine and http://www.columbia.edu/
+       5 routers part of the unsw network
+       2 routers that route across the pacific ocean (found using whois):
+       - router 9: 113.197.15.201  in Australia
+       - router 10: 207.231.240.8 - in Los Angeles
+   2. After router 2 (129.94.39.17), the paths from our machine to the 3 destinations diverge. This router is the UNSW Hostmaster. 
+      The number of hops is not proportional since tokyo and UCLA take 30 hops and closer to unsw than lancaster which only takes 18 hops
+   3. (i) = 202.150.221.169
+      (ii) = 203.50.77.53
+      The reverse path doesn't go through the same routers as the forward path. 
+      No the common routers dont necessarily have the same IP address. This is because routers have multiple IP addresses to spread the load of traffic
+      
+Exercise 4:
+    1.
+      1. 130.102.131.123 - www.uq.edu.au - 731km (approximately) from unsw
+          shortest time = 731000 / (3 x 10^8) = 0.00243666 seconds
+      2. 103.231.241.180 - www.dlsu.edu.ph - 6,269.73km (approximately) from unsw
+         shortest time = 6,270000 / (3 x 10^8) = 0.0209 seconds
+      3. 130.149.7.201 - www.tu-berlin.de - 16114.52km (approximtely) from unsw
+         shortest time = 16114.52 / (3 x 10^8) = 0.05371666666 seconds
+    The y-axis values are greater than 2 because of the delays of pckets traveling along a network. Eg packets must be checked at each router slowing down the progress. Also there may be high traffic, meaning packets have to queue at routers
+    
+    2. Delays change overtime. This is because packets can take different routes or a high amount of traffic, slowing the packet down.
+    3. No its hosted in San Fransisco, USA
+    4. Packet size has no impact on propogation, processing, queueing delay 
+       It does have an impact on transmission delay
+
+

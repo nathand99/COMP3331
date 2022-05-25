@@ -1,0 +1,35 @@
+Revision - TCP reno
+1 is triple duplicate ack - congestion window halved (only happens in tcp reno)
+2 is timeout - congestion window to 1
+3 is slow start (exponential). After first loss - switches to congestion avoidance
+4 is congestion avoidance (AIMD)
+Ater 2, slow start threshold is set to half of window, so the slow start stops at 5 when it reaches the threshold and switches to AIMD 
+
+TCP tahoe - goes to 0 everytime
+
+Exercise 1
+    1. 100. When it reaches 100, it drops to 0. This is because there was a loss event (timeout or there were 3 duplicate acks). Now it will go into slow start until it reaches the slow start threshold (which is set at half of 100 (50)).
+    2. Throughput: 189 packets/second. 500 - 40 = 460 * 500 = 230000 bps
+    3. The lower the window size, the less ocilations until it is a flat line
+       At window size 50, TCP stops ocilating 
+       The average throughput at this point is: 227 packets/second, 113500 bps. This is lowest than the link capacity (1Mbps)
+    4. Loss events are 3 duplicate acks and in TCP reno, that means the window is set as half of where it was instead of zero in TCP tahoe. The average throughput is 201 packets/second, 100500 bps
+    
+Exercise 2
+    1. Yes each flow gets an equal share of the capacity. All links ocilating around 20 p/s indicates that all flows are getting an equal share (around 20p/s)
+    2. The throughput of all existing flows will decrease if a new flow is added. They will ocsicate around a lower throughput value. MECHANISMSMS. This behavior is fair as all flows get roughly equal share of the link bandwidth
+    
+Exercise 3
+    1. UDP will use as much of the link as it can and TCP wil use the rest
+    2. UDP has no congestion avoidance mechanisms so will send as much as it can down the link. TCP does have congestion avoidance so it starts with slow start and then slowly backs off and uses the remaining amount on the link that UDP doesnt use. 
+    3. Advantages:
+        - no congestion avoidance, will send files as fast as it can
+       Disadvantages:
+        - If UDP sending exceeds link bandwidth, it will lose packets
+    
+    If everyone starts using UDP, no one will be using congestin control, and the internet would become congested and become unusable
+    
+    
+    
+    
+    
